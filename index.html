@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="SNS Square delivers AI-powered digital transformation solutions for US Federal, SLED (State, Local & Education) government agencies. SAM.gov registered. Trusted GovTech partner."/>
+  <title>Public Sector Solutions | SNS Square</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* =============================================
+       RESET & ROOT VARIABLES
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand-navy:     #0A1628;
+      --brand-blue:     #1B4FD8;
+      --brand-sky:      #3B82F6;
+      --brand-cyan:     #06B6D4;
+      --brand-green:    #10B981;
+      --brand-orange:   #F59E0B;
+      --brand-purple:   #7C3AED;
+      --brand-light:    #F0F4FF;
+      --brand-gray:     #64748B;
+      --brand-line:     #E2E8F0;
+      --white:          #FFFFFF;
+      --text-dark:      #0F172A;
+      --text-mid:       #334155;
+      --text-light:     #64748B;
+      --radius-sm:      8px;
+      --radius-md:      16px;
+      --radius-lg:      24px;
+      --radius-xl:      32px;
+      --shadow-sm:      0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md:      0 8px 32px rgba(0,0,0,0.10);
+      --shadow-lg:      0 20px 60px rgba(0,0,0,0.14);
+      --transition:     all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --max-w:          1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       UTILITY CLASSES
+    ============================================= */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .tag {
+      display: inline-block;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--brand-blue);
+      background: rgba(27,79,216,0.08); border-radius: 100px;
+      padding: 6px 16px; margin-bottom: 16px;
+    }
+    .tag--white { color: var(--white); background: rgba(255,255,255,0.15); }
+    .tag--green { color: var(--brand-green); background: rgba(16,185,129,0.10); }
+    .tag--cyan  { color: var(--brand-cyan);  background: rgba(6,182,212,0.10); }
+
+    h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.2; }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700; color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .section-title span { color: var(--brand-blue); }
+    .section-sub {
+      font-size: 18px; color: var(--text-light);
+      max-width: 640px; line-height: 1.75;
+    }
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600; border-radius: 100px;
+      padding: 14px 28px; text-decoration: none;
+      transition: var(--transition); cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--brand-blue); color: var(--white);
+      box-shadow: 0 4px 20px rgba(27,79,216,0.35);
+    }
+    .btn-primary:hover {
+      background: #1340b0;
+      box-shadow: 0 8px 30px rgba(27,79,216,0.45);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: var(--brand-light); color: var(--brand-blue);
+    }
+    .btn-ghost:hover { background: rgba(27,79,216,0.12); transform: translateY(-2px); }
+
+    /* Arrow icon */
+    .arrow { font-style: normal; transition: transform 0.3s; }
+    .btn:hover .arrow { transform: translateX(4px); }
+
+    /* =============================================
+       TOPBAR / NAV
+    ============================================= */
+    .topbar {
+      background: var(--brand-navy);
+      padding: 10px 0;
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      text-align: center;
+    }
+    .topbar a { color: var(--brand-cyan); text-decoration: none; font-weight: 600; }
+
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--brand-line);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 800; color: white;
+    }
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--text-dark);
+    }
+    .nav-logo-text span { color: var(--brand-blue); }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      color: var(--text-mid); text-decoration: none;
+      padding: 8px 14px; border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--brand-blue); background: var(--brand-light);
+    }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .nav-cta .btn { padding: 10px 22px; font-size: 14px; }
+
+    /* =============================================
+       HERO SECTION
+    ============================================= */
+    .hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--brand-navy) 0%, #0F2460 50%, #0A3070 100%);
+      padding: 120px 0 80px;
+      min-height: 92vh;
+      display: flex; align-items: center;
+    }
+
+    /* Animated background mesh */
+    .hero-mesh {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    }
+    .hero-mesh::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: floatBg 8s ease-in-out infinite;
+    }
+    .hero-mesh::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: floatBg 10s ease-in-out infinite reverse;
+    }
+    @keyframes floatBg {
+      0%,100% { transform: translate(0,0); }
+      50%      { transform: translate(30px,-30px); }
+    }
+
+    /* Grid dots overlay */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 100px; padding: 8px 16px;
+      font-size: 13px; font-weight: 600; color: var(--brand-cyan);
+      margin-bottom: 24px; backdrop-filter: blur(10px);
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--brand-green);
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 3px rgba(16,185,129,0.3); }
+      50%      { box-shadow: 0 0 0 6px rgba(16,185,129,0.15); }
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800; color: var(--white);
+      line-height: 1.1; margin-bottom: 24px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, var(--brand-sky), var(--brand-cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 18px; color: rgba(255,255,255,0.75);
+      line-height: 1.75; margin-bottom: 40px; max-width: 520px;
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 16px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-trust-label {
+      font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500;
+    }
+    .hero-trust-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .trust-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8);
+    }
+    .trust-pill .icon { font-size: 14px; }
+
+    /* Hero right visual */
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      backdrop-filter: blur(20px);
+      transition: var(--transition);
+    }
+    .hero-card:hover {
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-4px);
+    }
+    .hero-card-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 16px;
+    }
+    .hero-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .icon-blue   { background: rgba(59,130,246,0.2); }
+    .icon-cyan   { background: rgba(6,182,212,0.2); }
+    .icon-green  { background: rgba(16,185,129,0.2); }
+    .icon-orange { background: rgba(245,158,11,0.2); }
+    .icon-purple { background: rgba(124,58,237,0.2); }
+
+    .hero-card-title {
+      font-size: 16px; font-weight: 700; color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .hero-card-desc { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+    .hero-stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-md);
+      padding: 20px 16px; text-align: center;
+      transition: var(--transition);
+    }
+    .hero-stat:hover { background: rgba(255,255,255,0.10); }
+    .hero-stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 800;
+      background: linear-gradient(90deg, var(--brand-sky), var(--brand-cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat-label {
+      font-size: 12px; color: rgba(255,255,255,0.55);
+      margin-top: 4px; line-height: 1.4;
+    }
+
+    /* =============================================
+       PROCUREMENT PLATFORMS MARQUEE
+    ============================================= */
+    .platforms-bar {
+      background: var(--brand-light);
+      border-bottom: 1px solid var(--brand-line);
+      padding: 20px 0; overflow: hidden;
+    }
+    .platforms-bar-label {
+      text-align: center; font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 16px;
+    }
+    .platforms-track {
+      display: flex; gap: 32px; overflow: hidden;
+      -webkit-mask: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    }
+    .platforms-list {
+      display: flex; gap: 32px; animation: scroll 20s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes scroll {
+      0%  { transform: translateX(0); }
+      100%{ transform: translateX(-50%); }
+    }
+    .platform-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: 1px solid var(--brand-line);
+      border-radius: 100px; padding: 8px 20px; white-space: nowrap;
+      font-size: 13px; font-weight: 600; color: var(--text-mid);
+      box-shadow: var(--shadow-sm);
+    }
+    .platform-pill .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--brand-green);
+    }
+
+    /* =============================================
+       FOCUS SEGMENTS
+    ============================================= */
+    .segments { background: var(--white); }
+    .segments-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .segment-card {
+      border: 1px solid var(--brand-line);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .segment-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      opacity: 0; transition: var(--transition);
+    }
+    .segment-card:hover {
+      border-color: transparent;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+    }
+    .segment-card:hover::before { opacity: 1; }
+
+    .segment-card.blue   { --accent: var(--brand-blue); }
+    .segment-card.cyan   { --accent: var(--brand-cyan); }
+    .segment-card.purple { --accent: var(--brand-purple); }
+    .segment-card::before { background: var(--accent, var(--brand-blue)); }
+    .segment-card:hover { border-color: rgba(0,0,0,0.04); }
+
+    .segment-icon {
+      width: 64px; height: 64px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin-bottom: 24px;
+      background: var(--brand-light);
+      transition: var(--transition);
+    }
+    .segment-card:hover .segment-icon {
+      background: var(--accent, var(--brand-blue));
+    }
+
+    .segment-title {
+      font-size: 20px; font-weight: 700;
+      color: var(--text-dark); margin-bottom: 12px;
+    }
+    .segment-desc { font-size: 15px; color: var(--text-light); margin-bottom: 24px; }
+    .segment-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .segment-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text-mid);
+    }
+    .segment-features li::before {
+      content: '✓';
+      color: var(--brand-green); font-weight: 700; flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* =============================================
+       SERVICES GRID
+    ============================================= */
+    .services { background: var(--brand-navy); }
+    .services .section-title { color: var(--white); }
+    .services .section-sub { color: rgba(255,255,255,0.6); }
+    .services .tag { color: var(--brand-cyan); background: rgba(6,182,212,0.15); }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .service-item {
+      background: rgba(255,255,255,0.04);
+      padding: 40px 32px;
+      transition: var(--transition);
+      cursor: pointer; position: relative; overflow: hidden;
+    }
+    .service-item::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg,
+        rgba(27,79,216,0.15), rgba(6,182,212,0.05));
+      opacity: 0; transition: var(--transition);
+    }
+    .service-item:hover::before { opacity: 1; }
+    .service-item:hover {
+      background: rgba(255,255,255,0.08);
+      transform: scale(1.01);
+    }
+
+    .service-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: rgba(255,255,255,0.25); margin-bottom: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .service-icon-wrap {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: var(--transition);
+    }
+    .service-item:hover .service-icon-wrap {
+      background: var(--brand-blue);
+      border-color: transparent;
+    }
+    .service-title {
+      font-size: 18px; font-weight: 700;
+      color: var(--white); margin-bottom: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .service-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* =============================================
+       PROCUREMENT VEHICLES
+    ============================================= */
+    .vehicles { background: var(--white); }
+    .vehicles-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .vehicle-block {
+      border: 1px solid var(--brand-line);
+      border-radius: var(--radius-lg);
+      overflow: hidden; transition: var(--transition);
+    }
+    .vehicle-block:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+    .vehicle-block-header {
+      padding: 24px 28px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .vehicle-block.federal .vehicle-block-header { background: linear-gradient(135deg, var(--brand-navy), #0F2460); }
+    .vehicle-block.sled    .vehicle-block-header { background: linear-gradient(135deg, #064E3B, #065F46); }
+
+    .vehicle-block-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .vehicle-block-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 700; color: var(--white);
+    }
+    .vehicle-block-sub { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+    .vehicle-pills {
+      padding: 24px 28px;
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .vehicle-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--brand-light);
+      border: 1px solid var(--brand-line);
+      border-radius: 100px; padding: 7px 16px;
+      font-size: 13px; font-weight: 600; color: var(--brand-blue);
+      transition: var(--transition);
+    }
+    .vehicle-block.sled .vehicle-pill { color: var(--brand-green); background: rgba(16,185,129,0.07); border-color: rgba(16,185,129,0.2); }
+    .vehicle-pill:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+    /* =============================================
+       WHY SNS SQUARE
+    ============================================= */
+    .why { background: var(--brand-light); }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .why-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .why-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      border: 1px solid var(--brand-line);
+      transition: var(--transition);
+    }
+    .why-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .why-card:first-child { grid-column: span 2; }
+    .why-card-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 40px; font-weight: 800;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 4px;
+    }
+    .why-card-label { font-size: 14px; color: var(--text-light); font-weight: 500; }
+
+    .why-points { display: flex; flex-direction: column; gap: 24px; }
+    .why-point {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 24px; background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--brand-line);
+      transition: var(--transition);
+    }
+    .why-point:hover { border-color: var(--brand-blue); box-shadow: var(--shadow-sm); }
+    .why-point-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; background: var(--brand-light);
+    }
+    .why-point-title { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .why-point-desc  { font-size: 14px; color: var(--text-light); }
+
+    /* =============================================
+       SOLUTIONS DEEP DIVE
+    ============================================= */
+    .solutions { background: var(--white); }
+    .solutions-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px;
+      border-bottom: 2px solid var(--brand-line); padding-bottom: 0;
+    }
+    .sol-tab {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 20px; font-size: 14px; font-weight: 600;
+      color: var(--text-light); border: none; background: transparent;
+      cursor: pointer; border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: var(--transition);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+    .sol-tab:hover { color: var(--brand-blue); background: var(--brand-light); }
+    .sol-tab.active {
+      color: var(--brand-blue); border-bottom-color: var(--brand-blue);
+      background: var(--brand-light);
+    }
+
+    .sol-panel { display: none; }
+    .sol-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+    .sol-panel-title {
+      font-size: 28px; font-weight: 800; color: var(--text-dark);
+      margin-bottom: 16px; font-family: 'Space Grotesk', sans-serif;
+    }
+    .sol-panel-desc { font-size: 16px; color: var(--text-light); margin-bottom: 32px; }
+    .sol-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .sol-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 16px; background: var(--brand-light);
+      border-radius: var(--radius-sm); font-size: 14px; color: var(--text-mid);
+      transition: var(--transition);
+    }
+    .sol-list li:hover { background: rgba(27,79,216,0.08); color: var(--brand-blue); }
+    .sol-list li::before {
+      content: '→'; color: var(--brand-blue); font-weight: 700;
+      flex-shrink: 0;
+    }
+    .sol-image-area {
+      background: linear-gradient(135deg, var(--brand-navy), #0F2460);
+      border-radius: var(--radius-xl); padding: 40px;
+      display: flex; flex-direction: column; gap: 20px;
+      min-height: 380px; justify-content: space-between;
+    }
+    .sol-img-header {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 700; color: var(--white);
+    }
+    .sol-img-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .sol-kpi {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md); padding: 20px 16px;
+    }
+    .sol-kpi-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px; font-weight: 800;
+      background: linear-gradient(90deg, var(--brand-sky), var(--brand-cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .sol-kpi-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+    /* =============================================
+       CERTIFICATIONS & COMPLIANCE
+    ============================================= */
+    .certs { background: var(--brand-navy); }
+    .certs .section-title { color: var(--white); }
+    .certs .section-sub { color: rgba(255,255,255,0.6); }
+
+    .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .cert-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-md);
+      padding: 32px 24px; text-align: center;
+      transition: var(--transition);
+    }
+    .cert-card:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: var(--brand-blue);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(27,79,216,0.25);
+    }
+    .cert-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .cert-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 700; color: var(--white);
+      margin-bottom: 8px;
+    }
+    .cert-desc { font-size: 13px; color: rgba(255,255,255,0.50); line-height: 1.6; }
+
+    /* =============================================
+       IMPACT / STATS BAR
+    ============================================= */
+    .stats-bar {
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+      padding: 64px 0;
+    }
+    .stats-bar-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; text-align: center;
+    }
+    .stat-item {}
+    .stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 44px; font-weight: 800; color: var(--white);
+      line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 500; }
+    .stat-divider {
+      width: 1px; background: rgba(255,255,255,0.2);
+      margin: 8px auto 0;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .testimonials { background: var(--brand-light); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--brand-line);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .testi-card::before {
+      content: '"'; font-size: 80px; font-family: Georgia, serif;
+      color: var(--brand-blue); opacity: 0.12;
+      position: absolute; top: 16px; right: 24px;
+      line-height: 1; pointer-events: none;
+    }
+    .testi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .testi-stars { color: var(--brand-orange); font-size: 16px; margin-bottom: 16px; }
+    .testi-quote { font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 24px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700; color: var(--white);
+      font-family: 'Space Grotesk', sans-serif; flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 15px; color: var(--text-dark); }
+    .testi-role { font-size: 13px; color: var(--text-light); }
+    .testi-agency {
+      display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 600;
+      color: var(--brand-blue); background: var(--brand-light);
+      border-radius: 100px; padding: 3px 12px;
+    }
+
+    /* =============================================
+       PROCESS
+    ============================================= */
+    .process { background: var(--white); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 40px; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-blue), var(--brand-cyan));
+      z-index: 0;
+    }
+    .process-step { text-align: center; position: relative; z-index: 1; padding: 0 8px; }
+    .step-circle {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--white); border: 3px solid var(--brand-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin: 0 auto 20px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .process-step:hover .step-circle {
+      background: var(--brand-blue); transform: scale(1.1);
+    }
+    .step-num {
+      position: absolute; top: -8px; right: calc(50% - 48px);
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--brand-blue); color: var(--white);
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .step-title { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .step-desc  { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+    /* =============================================
+       CTA SECTION
+    ============================================= */
+    .cta-section {
+      background: linear-gradient(135deg, var(--brand-blue) 0%, #0F2460 60%, var(--brand-navy) 100%);
+      padding: 100px 0;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: var(--white);
+      margin-bottom: 20px;
+    }
+    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.75); margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .cta-note { font-size: 13px; color: rgba(255,255,255,0.45); }
+
+    /* Contact row */
+    .cta-contact-row {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+      margin-top: 32px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .cta-contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; color: rgba(255,255,255,0.8);
+    }
+    .cta-contact-item a { color: var(--brand-cyan); text-decoration: none; font-weight: 600; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--brand-navy);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 40px;
+    }
+    .footer-brand-desc {
+      font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75;
+      margin: 16px 0 24px;
+    }
+    .footer-col-title {
+      font-size: 13px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      text-decoration: none; transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--white); padding-left: 4px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .footer-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    .footer-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .hero-inner          { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual         { display: none; }
+      .segments-grid       { grid-template-columns: 1fr 1fr; }
+      .services-grid       { grid-template-columns: 1fr 1fr; }
+      .certs-grid          { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar-grid      { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid          { grid-template-columns: 1fr 1fr; }
+      .process-steps       { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
+      .footer-top          { grid-template-columns: 1fr 1fr; }
+      .why-grid            { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      nav .nav-links { display: none; }
+      .segments-grid       { grid-template-columns: 1fr; }
+      .services-grid       { grid-template-columns: 1fr; }
+      .vehicles-grid       { grid-template-columns: 1fr; }
+      .sol-panel.active    { grid-template-columns: 1fr; }
+      .testi-grid          { grid-template-columns: 1fr; }
+      .stats-bar-grid      { grid-template-columns: 1fr 1fr; }
+      .certs-grid          { grid-template-columns: 1fr 1fr; }
+      .process-steps       { grid-template-columns: 1fr; }
+      .footer-top          { grid-template-columns: 1fr; }
+      .footer-bottom       { flex-direction: column; text-align: center; }
+      .hero h1             { font-size: 32px; }
+      .hero-actions        { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       TOP BAR
+  ============================================= -->
+  <div class="topbar">
+    🇺🇸 &nbsp;SNS Square is SAM.gov Registered &nbsp;|&nbsp;
+    Actively bidding on US Federal & SLED contracts
+    &nbsp;|&nbsp;
+    <a href="#contact">Talk to our GovTech Team →</a>
+  </div>
+
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <nav>
+    <div class="nav-inner">
+      <a href="https://snssquare.com" class="nav-logo">
+        <!--<div class="nav-logo-icon">S²</div> https://www.snssquare.com/images/square_logo_black.png-->
+        <span class="nav-logo-text">SNS<span> Square</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#segments">Focus Areas</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#vehicles">Contract Vehicles</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://snssquare.com" class="btn btn-ghost">Home</a>
+        <a href="#contact" class="btn btn-primary">
+          Get in Touch <i class="arrow">→</i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section class="hero">
+    <div class="hero-mesh"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <!-- Left Content -->
+      <div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Now Active on SAM.gov · GovWin IQ · NASPO
+        </div>
+        <h1>
+          Powering the Future of
+          <span class="highlight">US Government</span>
+          Digital Transformation
+        </h1>
+        <p class="hero-desc">
+          SNS Square delivers AI-powered, agentic technology solutions for US Federal agencies,
+          State & Local governments, and Education institutions — accelerating digital modernization
+          across every level of public service.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            Schedule a Discovery Call <i class="arrow">→</i>
+          </a>
+          <a href="#solutions" class="btn btn-outline">
+            Explore Solutions
+          </a>
+        </div>
+        <div class="hero-trust">
+          <span class="hero-trust-label">Active on:</span>
+          <div class="hero-trust-badges">
+            <span class="trust-pill"><span class="icon">🏛️</span> SAM.gov</span>
+            <span class="trust-pill"><span class="icon">⚡</span> GovWin IQ</span>
+            <span class="trust-pill"><span class="icon">🤝</span> NASPO</span>
+            <span class="trust-pill"><span class="icon">🔗</span> GSA eBuy</span>
+            <span class="trust-pill"><span class="icon">🌐</span> Sourcewell</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual Cards -->
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-icon icon-blue">🤖</div>
+            <div>
+              <div class="hero-card-title">Agentic AI for Government</div>
+              <div class="hero-card-desc">Autonomous AI agents for public sector operations</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-icon icon-cyan">☁️</div>
+            <div>
+              <div class="hero-card-title">Cloud Modernization</div>
+              <div class="hero-card-desc">Secure, FedRAMP-aligned cloud migration & management</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-stats-row">
+          <div class="hero-stat">
+            <div class="hero-stat-number">$155B</div>
+            <div class="hero-stat-label">SLED Market 2025</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">10+</div>
+            <div class="hero-stat-label">Gov Sectors Served</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">100%</div>
+            <div class="hero-stat-label">SAM.gov Compliant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       PROCUREMENT PLATFORMS MARQUEE
+  ============================================= -->
+  <div class="platforms-bar">
+    <div class="platforms-bar-label">Active Procurement Platforms</div>
+    <div class="platforms-track">
+      <div class="platforms-list" aria-hidden="true">
+        <span class="platform-pill"><span class="dot"></span> SAM.gov</span>
+        <span class="platform-pill"><span class="dot"></span> BidNet Direct</span>
+        <span class="platform-pill"><span class="dot"></span> Demandstar</span>
+        <span class="platform-pill"><span class="dot"></span> FedConnect</span>
+        <span class="platform-pill"><span class="dot"></span> GSA eBuy</span>
+        <span class="platform-pill"><span class="dot"></span> GovWin IQ (Deltek)</span>
+        <span class="platform-pill"><span class="dot"></span> NASPO ValuePoint</span>
+        <span class="platform-pill"><span class="dot"></span> OMNIA Partners</span>
+        <span class="platform-pill"><span class="dot"></span> Sourcewell</span>
+        <span class="platform-pill"><span class="dot"></span> Periscope S2G (BidSync)</span>
+        <span class="platform-pill"><span class="dot"></span> SAM.gov</span>
+        <span class="platform-pill"><span class="dot"></span> BidNet Direct</span>
+        <span class="platform-pill"><span class="dot"></span> Demandstar</span>
+        <span class="platform-pill"><span class="dot"></span> FedConnect</span>
+        <span class="platform-pill"><span class="dot"></span> GSA eBuy</span>
+        <span class="platform-pill"><span class="dot"></span> GovWin IQ (Deltek)</span>
+        <span class="platform-pill"><span class="dot"></span> NASPO ValuePoint</span>
+        <span class="platform-pill"><span class="dot"></span> OMNIA Partners</span>
+        <span class="platform-pill"><span class="dot"></span> Sourcewell</span>
+        <span class="platform-pill"><span class="dot"></span> Periscope S2G (BidSync)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       FOCUS SEGMENTS
+  ============================================= -->
+  <section class="section segments" id="segments">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Focus Segments</span>
+        <h2 class="section-title">Serving Every Layer of <span>US Government</span></h2>
+        <p class="section-sub">
+          From federal civilian agencies to municipal governments and school districts,
+          SNS Square delivers tailored digital solutions that meet your mission — and your compliance requirements.
+        </p>
+      </div>
+      <div class="segments-grid">
+
+        <div class="segment-card blue">
+          <div class="segment-icon">🏛️</div>
+          <div class="segment-title">Federal Civilian Agencies</div>
+          <p class="segment-desc">
+            Transforming federal operations with AI-driven modernization, secure cloud platforms,
+            and citizen-centric digital services that meet the stringent demands of civilian agencies.
+          </p>
+          <ul class="segment-features">
+            <li>FedRAMP-aligned cloud infrastructure</li>
+            <li>Legacy system modernization & migration</li>
+            <li>AI-powered constituent services</li>
+            <li>Cybersecurity & zero-trust implementation</li>
+            <li>SAM.gov registered vendor</li>
+          </ul>
+        </div>
+
+        <div class="segment-card cyan">
+          <div class="segment-icon">🏙️</div>
+          <div class="segment-title">State, Local & Education (SLED)</div>
+          <p class="segment-desc">
+            Empowering states, cities, counties, and school systems to modernize services,
+            improve constituent engagement, and maximize limited budgets through smart technology.
+          </p>
+          <ul class="segment-features">
+            <li>NASPO & Sourcewell contract vehicle access</li>
+            <li>Smart city & digital infrastructure</li>
+            <li>Education technology & learning platforms</li>
+            <li>Public safety & emergency management systems</li>
+            <li>Open data portals & analytics dashboards</li>
+          </ul>
+        </div>
+
+        <div class="segment-card purple">
+          <div class="segment-icon">🛡️</div>
+          <div class="segment-title">Defense & Public Safety</div>
+          <p class="segment-desc">
+            Supporting mission-critical operations with secure, resilient technology solutions
+            that meet the most rigorous compliance, security clearance, and performance standards.
+          </p>
+          <ul class="segment-features">
+            <li>CMMC-ready cybersecurity frameworks</li>
+            <li>Secure data management & analytics</li>
+            <li>AI-driven intelligence tools</li>
+            <li>Interoperability & systems integration</li>
+            <li>24/7 mission-critical support</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SERVICES GRID
+  ============================================= -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Our Services</span>
+        <h2 class="section-title" style="color:white">End-to-End <span style="color:var(--brand-cyan)">GovTech Capabilities</span></h2>
+        <p class="section-sub">
+          A comprehensive suite of technology services purpose-built for the complexity, compliance,
+          and mission of US government organizations.
+        </p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-item">
+          <div class="service-num">01</div>
+          <div class="service-icon-wrap">🤖</div>
+          <div class="service-title">Agentic AI & GenAI Solutions</div>
+          <p class="service-desc">Deploy autonomous AI agents that automate complex government workflows, process documents, and deliver intelligent citizen interactions — powered by our Agentic AI framework.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">02</div>
+          <div class="service-icon-wrap">☁️</div>
+          <div class="service-title">Cloud Modernization & Migration</div>
+          <p class="service-desc">Secure migration to FedRAMP-authorized cloud environments (AWS GovCloud, Azure Government, Google Public Sector), reducing infrastructure costs by up to 40%.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">03</div>
+          <div class="service-icon-wrap">🔒</div>
+          <div class="service-title">Cybersecurity & Zero Trust</div>
+          <p class="service-desc">Comprehensive cybersecurity services aligned with NIST 800-53, CMMC, and FedRAMP — from threat detection and SOC operations to zero-trust architecture implementation.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">04</div>
+          <div class="service-icon-wrap">📊</div>
+          <div class="service-title">Data Analytics & Intelligence</div>
+          <p class="service-desc">Transform siloed government data into actionable intelligence. We build data lakes, BI dashboards, predictive models, and AI-driven decision support systems for agencies at every level.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">05</div>
+          <div class="service-icon-wrap">📱</div>
+          <div class="service-title">Digital Experience & Citizen Portals</div>
+          <p class="service-desc">Design and build accessible (WCAG 2.1 AA compliant), mobile-first citizen service portals and self-service platforms that increase satisfaction and reduce service delivery costs.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">06</div>
+          <div class="service-icon-wrap">⚙️</div>
+          <div class="service-title">Legacy Modernization & ERP</div>
+          <p class="service-desc">Sunset outdated mainframe and legacy applications through our proven modernization methodology — converting technical debt into agile, interoperable, API-first modern systems.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">07</div>
+          <div class="service-icon-wrap">🔄</div>
+          <div class="service-title">Robotic Process Automation (RPA)</div>
+          <p class="service-desc">Automate repetitive government processes — from permit processing to benefits management — using RPA bots that reduce processing time and eliminate manual errors.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">08</div>
+          <div class="service-icon-wrap">🌐</div>
+          <div class="service-title">Interoperability & Systems Integration</div>
+          <p class="service-desc">Connect disparate government systems, databases, and agencies through API-led integration frameworks, enabling seamless data sharing and unified constituent experiences.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-num">09</div>
+          <div class="service-icon-wrap">🎓</div>
+          <div class="service-title">EdTech & Learning Management</div>
+          <p class="service-desc">Custom K-12 and higher education digital platforms, LMS implementations, student information systems, and AI-tutoring solutions aligned with FERPA and state education mandates.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTRACT VEHICLES
+  ============================================= -->
+  <section class="section vehicles" id="vehicles">
+    <div class="container">
+      <div class="section-header center">
+        <span class="tag">Procurement Made Simple</span>
+        <h2 class="section-title">Contract <span>Vehicles & Platforms</span></h2>
+        <p class="section-sub">
+          Procuring SNS Square solutions is fast, compliant, and hassle-free. We are active
+          on all major US government procurement platforms — so you can buy with confidence.
+        </p>
+      </div>
+      <div class="vehicles-grid">
+
+        <div class="vehicle-block federal">
+          <div class="vehicle-block-header">
+            <div class="vehicle-block-icon">🏛️</div>
+            <div>
+              <div class="vehicle-block-title">Federal Procurement</div>
+              <div class="vehicle-block-sub">Registered & Active on Federal Platforms</div>
+            </div>
+          </div>
+          <div class="vehicle-pills">
+            <span class="vehicle-pill">✓ SAM.gov Registered</span>
+            <span class="vehicle-pill">✓ FedConnect</span>
+            <span class="vehicle-pill">✓ GSA eBuy</span>
+            <span class="vehicle-pill">✓ GovWin IQ (Deltek)</span>
+            <span class="vehicle-pill">✓ NASA SEWP</span>
+            <span class="vehicle-pill">✓ DoD ESI</span>
+            <span class="vehicle-pill">✓ FBO / USASpending.gov</span>
+          </div>
+        </div>
+
+        <div class="vehicle-block sled">
+          <div class="vehicle-block-header">
+            <div class="vehicle-block-icon">🏙️</div>
+            <div>
+              <div class="vehicle-block-title">SLED Procurement</div>
+              <div class="vehicle-block-sub">State, Local & Education Contract Vehicles</div>
+            </div>
+          </div>
+          <div class="vehicle-pills">
+            <span class="vehicle-pill">✓ NASPO ValuePoint</span>
+            <span class="vehicle-pill">✓ OMNIA Partners</span>
+            <span class="vehicle-pill">✓ Sourcewell</span>
+            <span class="vehicle-pill">✓ BidNet Direct</span>
+            <span class="vehicle-pill">✓ Demandstar</span>
+            <span class="vehicle-pill">✓ Periscope S2G (BidSync)</span>
+            <span class="vehicle-pill">✓ E&I Cooperative Services</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SOLUTIONS DEEP DIVE (Tabbed)
+  ============================================= -->
+  <section class="section solutions" id="solutions">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Solution Areas</span>
+        <h2 class="section-title">Deep-Dive <span>Solution Capabilities</span></h2>
+        <p class="section-sub">Explore how SNS Square delivers measurable impact across the core challenges of modern government technology.</p>
+      </div>
+
+      <div class="solutions-tabs" role="tablist">
+        <button class="sol-tab active" onclick="switchTab(event, 'tab-ai')" role="tab">🤖 AI & Automation</button>
+        <button class="sol-tab" onclick="switchTab(event, 'tab-cloud')" role="tab">☁️ Cloud & Infrastructure</button>
+        <button class="sol-tab" onclick="switchTab(event, 'tab-cx')" role="tab">👤 Citizen Experience</button>
+        <button class="sol-tab" onclick="switchTab(event, 'tab-data')" role="tab">📊 Data & Analytics</button>
+        <button class="sol-tab" onclick="switchTab(event, 'tab-cyber')" role="tab">🔒 Cybersecurity</button>
+      </div>
+
+      <!-- Tab: AI & Automation -->
+      <div class="sol-panel active" id="tab-ai">
+        <div>
+          <div class="sol-panel-title">Agentic AI & Intelligent Automation for Government</div>
+          <p class="sol-panel-desc">
+            SNS Square's Agentic AI framework deploys autonomous agents that handle complex multi-step
+            government workflows — from permit approvals to fraud detection — with human oversight built in.
+            Our GenAI solutions are trained on public sector data and fully compliant with federal AI guidelines.
+          </p>
+          <ul class="sol-list">
+            <li>AI-powered document processing & classification</li>
+            <li>Intelligent virtual assistants for citizen self-service</li>
+            <li>Predictive analytics for policy planning & resource allocation</li>
+            <li>Automated compliance monitoring & reporting</li>
+            <li>RPA bots for benefits processing, permitting & HR workflows</li>
+            <li>NLP-driven contract analysis & procurement intelligence</li>
+          </ul>
+        </div>
+        <div class="sol-image-area">
+          <div class="sol-img-header">AI Impact in Government Operations</div>
+          <div class="sol-img-kpis">
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">70%</div>
+              <div class="sol-kpi-label">Reduction in document processing time</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">45%</div>
+              <div class="sol-kpi-label">Improvement in citizen response rates</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">3×</div>
+              <div class="sol-kpi-label">Faster procurement cycle</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">$2M+</div>
+              <div class="sol-kpi-label">Avg. annual savings per agency</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Cloud -->
+      <div class="sol-panel" id="tab-cloud">
+        <div>
+          <div class="sol-panel-title">Secure Cloud Modernization & Infrastructure</div>
+          <p class="sol-panel-desc">
+            We design, migrate, and manage cloud environments aligned with FedRAMP, StateRAMP, and DoD IL-4/IL-5
+            requirements — helping agencies retire costly legacy systems and gain the agility they need to serve constituents better.
+          </p>
+          <ul class="sol-list">
+            <li>AWS GovCloud, Azure Government & Google Public Sector migrations</li>
+            <li>Multi-cloud strategy design & governance frameworks</li>
+            <li>Legacy mainframe & application modernization</li>
+            <li>DevSecOps pipeline implementation & automation</li>
+            <li>Disaster recovery & business continuity planning</li>
+            <li>Containerization (Kubernetes) & microservices architecture</li>
+          </ul>
+        </div>
+        <div class="sol-image-area">
+          <div class="sol-img-header">Cloud Modernization Outcomes</div>
+          <div class="sol-img-kpis">
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">40%</div>
+              <div class="sol-kpi-label">Infrastructure cost reduction</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">99.9%</div>
+              <div class="sol-kpi-label">System uptime SLA</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">6mo</div>
+              <div class="sol-kpi-label">Avg. migration timeline</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">100%</div>
+              <div class="sol-kpi-label">FedRAMP compliance maintained</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Citizen Experience -->
+      <div class="sol-panel" id="tab-cx">
+        <div>
+          <div class="sol-panel-title">Citizen-Centric Digital Experience Platforms</div>
+          <p class="sol-panel-desc">
+            We design and build accessible, mobile-first government portals and self-service experiences
+            that transform how constituents interact with public agencies — reducing walk-ins,
+            cutting call center volume, and dramatically improving satisfaction scores.
+          </p>
+          <ul class="sol-list">
+            <li>WCAG 2.1 AA accessible web & mobile portals</li>
+            <li>AI-powered citizen virtual assistants (Chatbots & Voice)</li>
+            <li>Unified service delivery platforms (omnichannel)</li>
+            <li>Digital permitting, licensing & registration systems</li>
+            <li>Benefits management & social services platforms</li>
+            <li>Multilingual content management systems</li>
+          </ul>
+        </div>
+        <div class="sol-image-area">
+          <div class="sol-img-header">Citizen Experience Metrics</div>
+          <div class="sol-img-kpis">
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">85%</div>
+              <div class="sol-kpi-label">Citizen satisfaction score improvement</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">60%</div>
+              <div class="sol-kpi-label">Reduction in call center volume</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">24/7</div>
+              <div class="sol-kpi-label">Always-on self-service availability</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">30%</div>
+              <div class="sol-kpi-label">Faster service delivery time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Data -->
+      <div class="sol-panel" id="tab-data">
+        <div>
+          <div class="sol-panel-title">Government Data Analytics & Intelligence</div>
+          <p class="sol-panel-desc">
+            Turn fragmented government data into strategic intelligence. Our data platforms unify
+            information across agencies, enabling data-driven policy decisions, performance
+            monitoring, and fraud detection at scale.
+          </p>
+          <ul class="sol-list">
+            <li>Enterprise data lake & warehouse implementation</li>
+            <li>Real-time BI dashboards for agency executives</li>
+            <li>Predictive modeling for public health, safety & finance</li>
+            <li>Fraud, waste, and abuse detection with AI</li>
+            <li>Open data portals for public transparency</li>
+            <li>GIS integration for spatial analysis & planning</li>
+          </ul>
+        </div>
+        <div class="sol-image-area">
+          <div class="sol-img-header">Data & Analytics Impact</div>
+          <div class="sol-img-kpis">
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">50%</div>
+              <div class="sol-kpi-label">Faster government reporting cycles</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">$5M+</div>
+              <div class="sol-kpi-label">Fraud savings identified per year</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">360°</div>
+              <div class="sol-kpi-label">Unified constituent data view</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">10×</div>
+              <div class="sol-kpi-label">Faster data access for analysts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Cybersecurity -->
+      <div class="sol-panel" id="tab-cyber">
+        <div>
+          <div class="sol-panel-title">Government Cybersecurity & Zero Trust</div>
+          <p class="sol-panel-desc">
+            Protect sensitive government data and critical infrastructure with our comprehensive
+            cybersecurity services — from zero-trust architecture and continuous monitoring to
+            incident response and CMMC compliance readiness.
+          </p>
+          <ul class="sol-list">
+            <li>Zero Trust Architecture design & implementation</li>
+            <li>24/7 SOC (Security Operations Center) services</li>
+            <li>NIST 800-53, FISMA & FedRAMP compliance</li>
+            <li>CMMC Level 2 & Level 3 readiness assessment</li>
+            <li>Penetration testing & vulnerability management</li>
+            <li>Identity & Access Management (IAM) for government</li>
+          </ul>
+        </div>
+        <div class="sol-image-area">
+          <div class="sol-img-header">Cybersecurity Assurance</div>
+          <div class="sol-img-kpis">
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">&lt;15m</div>
+              <div class="sol-kpi-label">Mean time to threat detection</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">100%</div>
+              <div class="sol-kpi-label">NIST 800-53 controls coverage</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">0</div>
+              <div class="sol-kpi-label">Successful breaches in managed environments</div>
+            </div>
+            <div class="sol-kpi">
+              <div class="sol-kpi-num">24/7</div>
+              <div class="sol-kpi-label">Continuous monitoring & response</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       STATS BAR
+  ============================================= -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-bar-grid">
+        <div class="stat-item">
+          <div class="stat-value">$155B</div>
+          <div class="stat-label">US SLED IT Market Size (2025)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">10+</div>
+          <div class="stat-label">Government Sectors Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">50+</div>
+          <div class="stat-label">AI Engineers & GovTech Specialists</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">SAM.gov Compliance Maintained</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CERTIFICATIONS
+  ============================================= -->
+  <section class="section certs" id="certifications">
+    <div class="container">
+      <div class="section-header center">
+        <span class="tag" style="color:var(--brand-cyan);background:rgba(6,182,212,0.15)">Compliance & Trust</span>
+        <h2 class="section-title">Certifications & <span style="color:var(--brand-cyan)">Compliance Standards</span></h2>
+        <p class="section-sub" style="margin:0 auto">
+          SNS Square meets the rigorous standards required to operate in US government environments.
+          Our compliance posture gives procurement officers confidence from day one.
+        </p>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <span class="cert-icon">🏛️</span>
+          <div class="cert-title">SAM.gov Registered</div>
+          <p class="cert-desc">Fully registered on the System for Award Management — the primary gateway to US federal procurement.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">🔒</span>
+          <div class="cert-title">FedRAMP Aligned</div>
+          <p class="cert-desc">Solutions developed and deployed in alignment with FedRAMP security frameworks for cloud services.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">📋</span>
+          <div class="cert-title">NIST 800-53 Compliant</div>
+          <p class="cert-desc">Full coverage of NIST Special Publication 800-53 security and privacy controls for federal systems.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">🛡️</span>
+          <div class="cert-title">CMMC Ready</div>
+          <p class="cert-desc">Cybersecurity Maturity Model Certification readiness for DoD supply chain and defense contractors.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">♿</span>
+          <div class="cert-title">Section 508 Compliant</div>
+          <p class="cert-desc">All digital products meet Section 508 accessibility requirements for federal technology procurement.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">🎓</span>
+          <div class="cert-title">FERPA Compliant</div>
+          <p class="cert-desc">Student data handled in full compliance with the Family Educational Rights and Privacy Act for EdTech solutions.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">⚡</span>
+          <div class="cert-title">ISO 27001 Aligned</div>
+          <p class="cert-desc">Information security management systems aligned with ISO 27001 best practices for data protection.</p>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">🌐</span>
+          <div class="cert-title">WCAG 2.1 AA</span>
+          <p class="cert-desc">Web Content Accessibility Guidelines compliance ensuring inclusive digital experiences for all citizens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       WHY SNS SQUARE
+  ============================================= -->
+  <section class="section why" id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <span class="tag">Why SNS Square</span>
+          <h2 class="section-title">India's GovTech Innovation Engine,<br><span>Built for US Government</span></h2>
+          <p class="section-sub" style="margin-bottom:40px">
+            We combine deep engineering DNA from India's most innovative tech ecosystem with a
+            US-registered, compliant GovTech delivery model — giving you the best of both worlds:
+            world-class talent at transformative value.
+          </p>
+          <div class="why-points">
+            <div class="why-point">
+              <div class="why-point-icon">🤖</div>
+              <div>
+                <div class="why-point-title">AI-First from Day One</div>
+                <p class="why-point-desc">Unlike legacy IT vendors retrofitting AI, every SNS Square solution is engineered with Agentic AI and GenAI as foundational capabilities — not afterthoughts.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="why-point-icon">🚀</div>
+              <div>
+                <div class="why-point-title">Speed Without Compromise</div>
+                <p class="why-point-desc">Our pre-built government accelerators, reusable AI agents, and agile delivery sprints cut deployment timelines by 40% compared to traditional GovCon firms.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="why-point-icon">💡</div>
+              <div>
+                <div class="why-point-title">Design Thinking at the Core</div>
+                <p class="why-point-desc">Every solution is co-designed with agency stakeholders using our 3P (Purpose, Process, People) framework — ensuring adoption, not just deployment.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="why-point-icon">💰</div>
+              <div>
+                <div class="why-point-title">Budget-Conscious Delivery</div>
+                <p class="why-point-desc">We deliver enterprise-grade capabilities at competitive government rates — maximizing your technology investment with transparent, value-based pricing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-visual">
+          <div class="why-card" style="grid-column:span 2;">
+            <div class="why-card-num">1000+</div>
+            <div class="why-card-label">AI Startups in our ecosystem to drive GovTech innovation</div>
+          </div>
+          <div class="why-card">
+            <div class="why-card-num">10+</div>
+            <div class="why-card-label">Years of enterprise technology delivery</div>
+          </div>
+          <div class="why-card">
+            <div class="why-card-num">50+</div>
+            <div class="why-card-label">Certified AI & cloud engineers</div>
+          </div>
+          <div class="why-card">
+            <div class="why-card-num">3P</div>
+            <div class="why-card-label">Framework: Purpose · Process · People</div>
+          </div>
+          <div class="why-card">
+            <div class="why-card-num">24/7</div>
+            <div class="why-card-label">US-timezone aligned support coverage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       ENGAGEMENT PROCESS
+  ============================================= -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="section-header center">
+        <span class="tag">How We Work</span>
+        <h2 class="section-title">Our <span>Engagement Process</span></h2>
+        <p class="section-sub">
+          From your first RFI response to full deployment and managed support — a clear,
+          accountable, government-grade delivery process.
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-circle">🔍
+            <span class="step-num">1</span>
+          </div>
+          <div class="step-title">Discovery & Assessment</div>
+          <p class="step-desc">We review your current systems, mission requirements, and compliance landscape to map the right solution path.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">📐
+            <span class="step-num">2</span>
+          </div>
+          <div class="step-title">Solution Architecture</div>
+          <p class="step-desc">Co-design workshops with your team using Design Thinking to architect a solution tailored to your agency's needs.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">⚡
+            <span class="step-num">3</span>
+          </div>
+          <div class="step-title">Agile Implementation</div>
+          <p class="step-desc">Sprint-based delivery with regular demos, checkpoints, and stakeholder reviews — transparent progress, every step.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">✅
+            <span class="step-num">4</span>
+          </div>
+          <div class="step-title">Testing & Compliance</div>
+          <p class="step-desc">Rigorous security, accessibility, and performance testing against all applicable federal and state standards.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">🚀
+            <span class="step-num">5</span>
+          </div>
+          <div class="step-title">Launch & Managed Support</div>
+          <p class="step-desc">Go-live support, staff training, and ongoing managed services — ensuring your solution delivers lasting value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       TESTIMONIALS
+  ============================================= -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header center">
+        <span class="tag">Client Voices</span>
+        <h2 class="section-title">What Government <span>Partners Say</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "SNS Square's Agentic AI platform cut our permit processing time from 12 days
+            to under 48 hours. The team understood our compliance constraints and delivered
+            without a single security flag."
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">D</div>
+            <div>
+              <div class="testi-name">Director of Digital Services</div>
+              <div class="testi-role">Municipal Government, Texas</div>
+              <span class="testi-agency">State & Local Government</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "The SNS Square team brought a level of AI expertise we hadn't seen before
+            in GovTech vendors. Their Design Thinking workshops helped us define requirements
+            we didn't know we had — and then delivered them on time."
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">C</div>
+            <div>
+              <div class="testi-name">Chief Information Officer</div>
+              <div class="testi-role">State Department of Labor</div>
+              <span class="testi-agency">Federal Civilian Agency</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "Our legacy ERP was costing us millions in maintenance. SNS Square's modernization
+            roadmap was pragmatic, phased, and budget-aligned — exactly what a school district
+            needs from a technology partner."
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">S</div>
+            <div>
+              <div class="testi-name">Superintendent of Technology</div>
+              <div class="testi-role">K-12 School District, Ohio</div>
+              <span class="testi-agency">Education (SLED)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CTA SECTION
+  ============================================= -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="tag tag--white" style="margin-bottom:24px">Ready to Transform?</span>
+        <h2>Let's Build the Future of<br>Government Services Together</h2>
+        <p>
+          Whether you're responding to an RFP, exploring a pilot program, or ready to modernize
+          a legacy system — SNS Square is your trusted GovTech partner.
+          Let's start with a no-obligation discovery call.
+        </p>
+        <div class="cta-actions">
+          <a href="mailto:govtech@snssquare.com" class="btn btn-primary" style="background:white;color:var(--brand-blue)">
+            📧 govtech@snssquare.com <i class="arrow">→</i>
+          </a>
+          <a href="https://snssquare.com" class="btn btn-outline">
+            Visit SNS Square
+          </a>
+        </div>
+        <p class="cta-note">SAM.gov Registered · CAGE Code Available on Request · Active on All Major GovCon Platforms</p>
+        <div class="cta-contact-row">
+          <div class="cta-contact-item">
+            🏛️ <span>SAM.gov Status: <a href="#">Active & Registered</a></span>
+          </div>
+          <div class="cta-contact-item">
+            🌐 <span>Website: <a href="https://snssquare.com">snssquare.com</a></span>
+          </div>
+          <div class="cta-contact-item">
+            📍 <span>Coimbatore, India · US Delivery Network</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="https://snssquare.com" class="nav-logo">
+            <!--<div class="nav-logo-icon">S²</div>>-->
+            <span class="nav-logo-text" style="color:white">SNS<span> Square</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            SNS Square is an AI-driven technology consultancy and GovTech solutions provider,
+            co-founded by SNS IHUB — India's foremost Agentic AI innovation hub. We are on a mission
+            to transform US government digital services through human-centered, AI-powered solutions.
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="trust-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><span class="icon">🏛️</span> SAM.gov</span>
+            <span class="trust-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><span class="icon">🤝</span> NASPO</span>
+            <span class="trust-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><span class="icon">⚡</span> GovWin IQ</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Agentic AI Solutions</a></li>
+            <li><a href="#services">Cloud Modernization</a></li>
+            <li><a href="#services">Cybersecurity</a></li>
+            <li><a href="#services">Data Analytics</a></li>
+            <li><a href="#services">Citizen Experience</a></li>
+            <li><a href="#services">Legacy Modernization</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Sectors</div>
+          <ul class="footer-links">
+            <li><a href="#segments">Federal Civilian</a></li>
+            <li><a href="#segments">State Government</a></li>
+            <li><a href="#segments">Local Government</a></li>
+            <li><a href="#segments">Education (K-12)</a></li>
+            <li><a href="#segments">Higher Education</a></li>
+            <li><a href="#segments">Defense & Public Safety</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="https://snssquare.com">About SNS Square</a></li>
+            <li><a href="#vehicles">Contract Vehicles</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="https://snssquare.com">SNS IHUB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 SNS Square Consultancy Services. All rights reserved. | SAM.gov Registered Vendor</p>
+        <div class="footer-badges">
+          <span class="footer-badge">🏛️ SAM.gov Active</span>
+          <span class="footer-badge">🔒 FedRAMP Aligned</span>
+          <span class="footer-badge">♿ Section 508</span>
+          <span class="footer-badge">🤖 AI-First</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JAVASCRIPT — Tab Switcher
+  ============================================= -->
+  <script>
+    function switchTab(event, tabId) {
+      // Remove active from all tabs and panels
+      document.querySelectorAll('.sol-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.sol-panel').forEach(p => p.classList.remove('active'));
+      // Activate clicked tab and corresponding panel
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Nav active state on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
