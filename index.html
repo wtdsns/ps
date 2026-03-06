@@ -543,6 +543,28 @@
     }
     .vehicle-block.sled .vehicle-pill { color: var(--brand-green); background: rgba(16,185,129,0.07); border-color: rgba(16,185,129,0.2); }
     .vehicle-pill:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+ /* ═══════════════════════════════════════════════════════════
+           AGENCIES SERVED (LOGO GRID)
+           ═══════════════════════════════════════════════════════════ */
+        .agencies { padding: 80px 0; background: var(--navy-mid); }
+        .agency-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+        .agency-chip {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 20px 16px;
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--gray-400);
+            transition: var(--transition);
+        }
+        .agency-chip:hover { border-color: rgba(0, 194, 255, 0.25); color: var(--gray-200); }
+        .agency-chip .agency-icon { font-size: 1.8rem; display: block; margin-bottom: 8px; }
 
     /* =============================================
        WHY SNS SQUARE
@@ -707,7 +729,111 @@
       width: 1px; background: rgba(255,255,255,0.2);
       margin: 8px auto 0;
     }
-
+/* ═══════════════════════════════════════════════════════════
+           SUBCONTRACTING / TEAMING
+           ═══════════════════════════════════════════════════════════ */
+        .teaming { padding: 100px 0; }
+        .teaming-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .teaming-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+        .teaming-text p {
+            color: var(--gray-400);
+            margin-bottom: 24px;
+        }
+        .teaming-benefits {
+            display: grid;
+            gap: 16px;
+        }
+        .teaming-benefit {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .teaming-benefit-icon {
+            width: 40px; height: 40px;
+            background: rgba(0, 194, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .teaming-benefit h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+        .teaming-benefit p {
+            font-size: 0.82rem;
+            color: var(--gray-400);
+            margin-bottom: 0;
+        }
+        .teaming-form-panel {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+        .teaming-form-panel h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .teaming-form-panel > p {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-bottom: 24px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .form-field {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            transition: var(--transition);
+        }
+        .form-field:focus { outline: none; border-color: var(--accent); }
+        .form-field::placeholder { color: var(--gray-500); }
+        .form-field.full { grid-column: 1 / -1; }
+        .form-field-full { margin-bottom: 12px; }
+        textarea.form-field { min-height: 100px; resize: vertical; }
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: var(--transition);
+            margin-top: 8px;
+        }
+        .form-submit:hover { filter: brightness(1.1); transform: translateY(-1px); }
     /* =============================================
        TESTIMONIALS
     ============================================= */
@@ -1573,6 +1699,30 @@
       </div>
     </div>
   </section>
+<!-- ═══════════ AGENCIES ═══════════ -->
+    <section class="agencies">
+        <div class="container">
+            <div class="section-header center animate-on-scroll">
+                <span class="tag">Who We Serve</span>
+          <h2 class="section-title">Government Agencies & Sectors</span></h2>
+                
+            </div>
+            <div class="agency-grid">
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🏛️</span>Federal Civilian</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🛡️</span>Dept. of Defense</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🏥</span>Health & Human Services</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">📚</span>Dept. of Education</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🚔</span>Homeland Security</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">💼</span>Dept. of Labor</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🏘️</span>State Governments</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🏙️</span>Municipal / County</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🎓</span>K-12 School Districts</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🏫</span>Higher Education</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">🚑</span>Public Safety</div>
+                <div class="agency-chip animate-on-scroll"><span class="agency-icon">⚖️</span>Dept. of Justice</div>
+            </div>
+        </div>
+    </section>
 
   <!-- =============================================
        WHY SNS SQUARE
@@ -1582,10 +1732,10 @@
       <div class="why-grid">
         <div>
           <span class="tag">Why SNS Square</span>
-          <h2 class="section-title">India's GovTech Innovation Engine,<br><span>Built for US Government</span></h2>
+          <h2 class="section-title">Square's GovTech Innovation Engine,<br><span>Built for US Government</span></h2>
           <p class="section-sub" style="margin-bottom:40px">
-            We combine deep engineering DNA from India's most innovative tech ecosystem with a
-            US-registered, compliant GovTech delivery model — giving you the best of both worlds:
+            We combine deep engineering DNA from Square's most innovative tech ecosystem with a
+            US-registered, compliant GovTech delivery model — giving you the best of the world:
             world-class talent at transformative value.
           </p>
           <div class="why-points">
@@ -1697,7 +1847,96 @@
       </div>
     </div>
   </section>
-
+  <!-- ═══════════ TEAMING / SUBCONTRACTING ═══════════ -->
+    <section class="teaming" id="teaming" style="background: var(--navy-mid);">
+        <div class="container">
+            <div class="section-header center animate-on-scroll">
+               <span class="tag">Teaming Opportunities</span>
+        <h2 class="section-title">Partner & <span>Subcontract With Us</span></h2>
+        <p class="section-sub">
+         SNS Square actively partners with small businesses, 8(a) firms, HUBZone companies, WOSBs, SDVOSBs, 
+         and prime contractors to deliver mission-critical solutions together.
+        </p>
+                </div>
+            <div class="teaming-content">
+                <div class="teaming-text animate-on-scroll">
+                    <h3>Why Team With SNS Square?</h3>
+                    <p>We believe in building lasting partnerships that deliver mutual value. Our teaming approach is designed to be transparent, compliant, and results-oriented.</p>
+                    <div class="teaming-benefits">
+                        <div class="teaming-benefit">
+                            <div class="teaming-benefit-icon">🤝</div>
+                            <div>
+                                <h4>SBA Mentor-Protégé Ready</h4>
+                                <p>Structured partnerships for joint ventures and capability development under SBA guidelines.</p>
+                            </div>
+                        </div>
+                        <div class="teaming-benefit">
+                            <div class="teaming-benefit-icon">🛡️</div>
+                            <div>
+                                <h4>DCAA-Compliant Operations</h4>
+                                <p>Our accounting systems and business processes meet DCAA audit standards for government contracting.</p>
+                            </div>
+                        </div>
+                        <div class="teaming-benefit">
+                            <div class="teaming-benefit-icon">⚡</div>
+                            <div>
+                                <h4>AI & Cloud Differentiation</h4>
+                                <p>Bring cutting-edge Agentic AI, GenAI, and cloud modernization capabilities to your proposal team.</p>
+                            </div>
+                        </div>
+                        <div class="teaming-benefit">
+                            <div class="teaming-benefit-icon">🌍</div>
+                            <div>
+                                <h4>Global Delivery, Local Compliance</h4>
+                                <p>Access 50+ AI specialists with US-compliant delivery models that reduce costs by 30-40%.</p>
+                            </div>
+                        </div>
+                        <div class="teaming-benefit">
+                            <div class="teaming-benefit-icon">📋</div>
+                            <div>
+                                <h4>Multi-Vehicle Access</h4>
+                                <p>Leverage our registrations across SAM.gov, NASPO, GovWin IQ, Sourcewell, and 10+ procurement platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teaming-form-panel animate-on-scroll" id="contact">
+                    <h3>📩 Vendor / Teaming Inquiry</h3>
+                    <p>Interested in teaming or subcontracting? Complete this form and our partnerships team will reach out within 48 hours.</p>
+                    <div class="form-row">
+                        <input type="text" class="form-field" placeholder="Company Name">
+                        <input type="text" class="form-field" placeholder="Contact Name">
+                    </div>
+                    <div class="form-row">
+                        <input type="email" class="form-field" placeholder="Email Address">
+                        <input type="tel" class="form-field" placeholder="Phone Number">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" class="form-field" placeholder="UEI Number">
+                        <input type="text" class="form-field" placeholder="CAGE Code">
+                    </div>
+                    <div class="form-row">
+                        <select class="form-field">
+                            <option value="">Business Size / Classification</option>
+                            <option>Small Business</option>
+                            <option>Small Disadvantaged Business (SDB)</option>
+                            <option>8(a) Certified</option>
+                            <option>Woman-Owned Small Business (WOSB)</option>
+                            <option>HUBZone Certified</option>
+                            <option>Veteran-Owned (VOSB)</option>
+                            <option>Service-Disabled VOSB (SDVOSB)</option>
+                            <option>Other than Small (Large)</option>
+                        </select>
+                        <input type="text" class="form-field" placeholder="Primary NAICS Codes">
+                    </div>
+                    <div class="form-field-full">
+                        <textarea class="form-field" style="width:100%;" placeholder="Describe your capabilities, current contract vehicles, and areas of interest for teaming..."></textarea>
+                    </div>
+                    <button class="form-submit">Submit Teaming Inquiry →</button>
+                </div>
+            </div>
+        </div>
+    </section>
   <!-- =============================================
        TESTIMONIALS
   ============================================= -->
@@ -1790,7 +2029,7 @@
             🌐 <span>Website: <a href="https://snssquare.com">snssquare.com</a></span>
           </div>
           <div class="cta-contact-item">
-            📍 <span>Coimbatore, India · US Delivery Network</span>
+            📍 <span>US Delivery Network</span>
           </div>
         </div>
       </div>
@@ -1810,7 +2049,7 @@
           </a>
           <p class="footer-brand-desc">
             SNS Square is an AI-driven technology consultancy and GovTech solutions provider,
-            co-founded by SNS IHUB — India's foremost Agentic AI innovation hub. We are on a mission
+            We are on a mission
             to transform US government digital services through human-centered, AI-powered solutions.
           </p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -1848,7 +2087,6 @@
             <li><a href="#vehicles">Contract Vehicles</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact Us</a></li>
-            <li><a href="https://snssquare.com">SNS IHUB</a></li>
           </ul>
         </div>
       </div>
